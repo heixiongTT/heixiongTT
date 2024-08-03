@@ -1,0 +1,18 @@
+name: Build Docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            docs
+      - run: pip install mkdocs-material
+      - run: poetry run mkdocs gh-deploy --force
