@@ -15,4 +15,4 @@ jobs:
           sparse-checkout: |
             docs
       - run: pip install mkdocs-material
-      - run: poetry run mkdocs gh-deploy --force
+      - run: mkdocs gh-deploy --force
